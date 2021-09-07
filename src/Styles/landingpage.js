@@ -1,0 +1,117 @@
+import { createUseStyles } from 'react-jss'
+
+const useStyles = createUseStyles((theme) => ({
+	container: {
+		width: '100vw',
+		height: '100vh',
+		minHeight: '700px',
+		display: 'flex',
+		flexDirection: theme.orientation() === 'landscape' ? 'row' : 'column',
+	},
+	contentContainer: {
+		position: 'relative',
+		borderStyle: 'solid',
+		borderWidth: theme.orientation() === 'landscape' ? '1px 0px 1px 1px' : '1px 1px 0px 1px',
+		borderColor: theme.colors.dark,
+		margin: theme.spacing.lg,
+		marginRight: theme.orientation() === 'landscape' ? '0rem' : theme.spacing.lg,
+		marginBottom: theme.orientation() === 'portrait' ? '0rem' : theme.spacing.lg,
+	},
+	topTextContainer: {
+		position: 'absolute',
+		top: '0%',
+		transform: 'translateY(-100%)',
+		display: 'flex',
+		gap: theme.spacing.sm,
+	},
+	topBox: {
+		position: 'relative',
+		width: '100%',
+		height: '8rem',
+		borderStyle: 'solid',
+		borderWidth: '0px 0px 1px 0px',
+		borderColor: theme.colors.dark,
+	},
+	square: {
+		position: 'absolute',
+		top: '0%',
+		right: '7.5%',
+		width: '8rem',
+		height: '100%',
+		borderWidth: '0px 1px 0px 1px',
+		borderStyle: 'solid',
+		boderColor: theme.colors.dark,
+	},
+	brailleContainer: {
+		position: 'relative',
+		width: '8rem',
+		height: '12rem',
+		margin: theme.spacing.md,
+	},
+	header: {
+		position: 'absolute',
+		right: '0%',
+		maxWidth: theme.orientation() === 'landscape' ? '80%' : '100%',
+		margin: theme.spacing.md,
+		top: theme.orientation() === 'landscape' ? '8rem' : '20rem',
+		textAlign: 'right',
+	},
+	borderLeft: {
+		position: 'absolute',
+		width: '5rem',
+		height: '5rem',
+		borderWidth: '0px 0px 4px 4px',
+		borderStyle: 'solid',
+		borderColor: theme.colors.dark,
+		bottom: '0%',
+		left: '0%',
+	},
+	borderRight: {
+		position: 'absolute',
+		width: '5rem',
+		height: '5rem',
+		borderWidth: '4px 4px 0px 0px',
+		borderStyle: 'solid',
+		borderColor: theme.colors.dark,
+		top: '0%',
+		right: '0%',
+	},
+	pContainer: {
+		position: 'absolute',
+		left: theme.spacing.md,
+		bottom: '10%',
+		maxWidth: '20rem',
+	},
+	name: {
+		fontWeight: 700,
+		marginBottom: theme.spacing.sm,
+	},
+	link: {
+		marginTop: theme.spacing.xs,
+	},
+	bottomText: {
+		position: 'absolute',
+		bottom: theme.orientation() === 'landscape' ? '0%' : '100%',
+		right: '0%',
+		transform: theme.orientation() === 'landscape' ? 'translateY(100%)' : 'translateY(-5%)',
+	},
+	triangle: {
+		position: 'absolute',
+		bottom: '0%',
+		right: '0%',
+		width: '0rem',
+		height: '0rem',
+		borderBottom: `8rem solid ${theme.colors.accent}`,
+		borderLeft: `8rem solid ${theme.colors.transparent}`,
+	},
+	'@media (max-width: 600px)': {
+		contentContainer: {
+			position: 'relative',
+			margin: theme.spacing.sm,
+			marginRight: theme.orientation() === 'landscape' ? '0rem' : theme.spacing.sm,
+			marginBottom: theme.orientation() === 'portrait' ? '0rem' : theme.spacing.sm,
+		},
+	},
+}))
+
+export default useStyles
