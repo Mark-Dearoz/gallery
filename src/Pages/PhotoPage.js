@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Braille from '../Components/Braille'
