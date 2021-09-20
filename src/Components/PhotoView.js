@@ -1,9 +1,9 @@
 import { useCallback } from 'react'
-import { motion } from 'framer-motion'
 import Image from './Image'
 import useStyles from '../Styles/photoview'
+import { motion } from 'framer-motion'
 
-function PhotoView({ urls, onClick, scrollRef }) {
+function PhotoView({ urls, onClick, scrollRef, show }) {
 	const classes = useStyles()
 	const renderImages = useCallback(
 		() =>
@@ -24,16 +24,16 @@ function PhotoView({ urls, onClick, scrollRef }) {
 		<motion.div
 			className={classes.photoContainer}
 			ref={scrollRef}
-			exit={{ opacity: 0 }}
-			transition={{ duration: 0.5 }}
+			style={show ? { opacity: 1 } : { opacity: 0 }}
+			transition={{ staggerChildren: 0.75 }}
 		>
 			{renderImages()}
 		</motion.div>
 	)
 }
 const imageVariant = {
-	hidden: { opacity: 0, scale: 0.9 },
-	visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: 'easeOut' } },
+	hidden: { opacity: 0 },
+	visible: { opacity: 1, transition: { duration: 1, ease: 'easeOut' } },
 	hover: { scale: 1.2, transition: { duration: 0.25, ease: 'easeInOut' } },
 }
 export default PhotoView

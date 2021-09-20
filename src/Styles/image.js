@@ -15,6 +15,8 @@ const useStyles = createUseStyles((theme) => ({
 		objectFit: 'contain',
 		height: theme.orientation() === 'landscape' ? '100%' : 'auto',
 		width: theme.orientation() === 'landscape' ? 'auto' : '100%',
+		maxHeight: '95vh',
+		maxWidth: '95vw',
 	},
 }))
 

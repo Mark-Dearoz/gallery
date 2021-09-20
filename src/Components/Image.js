@@ -27,6 +27,7 @@ function Image(props) {
 					alt={props.alt}
 					src={props.src}
 					variants={props.variants}
+					initial="hidden"
 					animate="visible"
 					whileHover="hover"
 					tabIndex={0}

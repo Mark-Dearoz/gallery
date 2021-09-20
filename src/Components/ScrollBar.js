@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 import useScroll from '../hooks/useScroll'
 import useStyles from '../Styles/scrollbar'
 
-function ScrollBar({ onTrigger, scrollRef }) {
+function ScrollBar({ onTrigger, scrollRef, show }) {
 	const orientation = useRef('portrait')
 	const classes = useStyles()
 	const [length, offSet, trigger] = useScroll(scrollRef, {
@@ -20,7 +20,7 @@ function ScrollBar({ onTrigger, scrollRef }) {
 		if (trigger) onTrigger()
 	}, [trigger, onTrigger])
 	return (
-		<div className={classes.container}>
+		<div className={classes.container} style={show ? { opacity: 1 } : { opacity: 0 }}>
 			<motion.div
 				className={classes.bar}
 				variants={barVariant}

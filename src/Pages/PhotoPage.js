@@ -36,11 +36,14 @@ function PhotoPage(props) {
 						</motion.h2>
 					</motion.div>
 
-					{imageOpen === null && (
-						<motion.div variants={items}>
-							<PhotoView scrollRef={ref} urls={urls} onClick={(i) => setImageOpen(i)} />
-						</motion.div>
-					)}
+					<motion.div variants={items}>
+						<PhotoView
+							show={imageOpen === null}
+							scrollRef={ref}
+							urls={urls}
+							onClick={(i) => setImageOpen(i)}
+						/>
+					</motion.div>
 
 					{imageOpen !== null && (
 						<>
@@ -56,15 +59,14 @@ function PhotoPage(props) {
 						</>
 					)}
 					{imageOpen === null && (
-						<>
-							<motion.p className={classes.pageNumber} variants={items}>
-								{props.page >= 10 ? props.page : `0${props.page}`}
-							</motion.p>
-							<motion.div variants={items}>
-								<ScrollBar scrollRef={ref} onTrigger={triggerHandler} />
-							</motion.div>
-						</>
+						<motion.p className={classes.pageNumber} variants={items}>
+							{props.page >= 10 ? props.page : `0${props.page}`}
+						</motion.p>
 					)}
+					<motion.div variants={items}>
+						<ScrollBar show={imageOpen === null} scrollRef={ref} onTrigger={triggerHandler} />
+					</motion.div>
+
 					{window.innerWidth > window.innerHeight && (
 						<motion.div className={classes.brailleContainer} variants={items}>
 							<Braille array={[true, false, false, true, true, false]} />
